@@ -15,11 +15,9 @@ await pool.query(`
     CHECK (LENGTH(password) >= 6),
     phone VARCHAR(15) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    role VARCHAR(200) NOT NULL CHECK(role IN ('admin', 'user'))
+    role VARCHAR(200) NOT NULL CHECK(role IN ('admin', 'customer'))
     );
  `);
-
-
 
 
  await pool.query(`

@@ -12,9 +12,9 @@ initDB()
 app.use(express.json())
 //route
 app.use('/api/v1', userRouter )
-// app.use('/api/v1', authRouter)
-// app.use('/api/v1', vehicleRouter )
-// app.use('/api/v1', bookingRouter)
+app.use('/api/v1', authRouter)
+app.use('/api/v1', vehicleRouter )
+app.use('/api/v1', bookingRouter)
 
 app.listen(configEnv.port, () => {
   console.log(`Example app listening on port ${configEnv.port}`)

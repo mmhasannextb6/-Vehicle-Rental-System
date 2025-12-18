@@ -2,11 +2,10 @@ import { pool } from "../../db/initDb"
 
 const getAllUsersFromDB = async()=>{
     const result = await pool.query(`
-        SELECT * FROM users
+        SELECT name , email, phone, role from users
         `)
-        //have to fix , password come to front end, it has to ban
-        delete result.rows[0].password
-        return result
+    
+        return result.rows
 }
 
 export const userServices = {

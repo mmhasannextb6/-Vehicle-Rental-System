@@ -7,7 +7,7 @@ const getAllUsers =async(req:Request, res:Response)=>{
     res.status(201).send({
         success:true,
         message:"Users retrieved successfully",
-        data:result.rows
+        data:result
     })
 }
 

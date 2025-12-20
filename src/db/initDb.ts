@@ -23,12 +23,12 @@ await pool.query(`
  await pool.query(`
     
     CREATE TABLE IF NOT EXISTS vehicles(
-    ID SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     vehicle_name VARCHAR(200) NOT NULL,
-    type VARCHAR(20) NOT NULL CHECK(type IN('car', 'bike', 'van','SUV')),
+    type VARCHAR(200) NOT NULL,
     registration_number INT NOT NULL UNIQUE,
     daily_rent_price NUMERIC CHECK(daily_rent_price>0),
-    availability_status VARCHAR(20) NOT NULL CHECK (availability_status IN ('available', 'booked'))
+    availability_status VARCHAR(20) NOT NULL
     )
        
     `)

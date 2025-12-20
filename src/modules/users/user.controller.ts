@@ -11,6 +11,21 @@ const getAllUsers =async(req:Request, res:Response)=>{
     })
 }
 
+
+const getSingleUser =async(req:Request, res:Response)=>{
+
+    const email = req.user!.email
+    const result = await userServices.getSingleUserFRomDB(email)
+
+    res.status(201).send({
+        success:true,
+        message:"Users retrieved successfully",
+        data:result
+    })
+}
+
+
 export const userController = {
-    getAllUsers
+    getAllUsers,
+    getSingleUser
 }

@@ -3,6 +3,8 @@ import { JwtPayload } from './../../../node_modules/@types/jsonwebtoken/index.d'
 import jwt from 'jsonwebtoken'
 import { pool } from "../../db/initDb"
 import bcrypt from 'bcryptjs'
+import { configEnv } from '../../config/config';
+export const secret = 'KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30-QV30'
 const signUpIntoDB = async(payload:Record<string, unknown>)=>{
     const {name, email, password, phone, role} = payload
     const hashPassword = await bcrypt.hash(password as string, 12)
@@ -32,11 +34,12 @@ const mathchPassword= await bcrypt.compare(password, user.rows[0].password)
 const JwtPayload = {
 id:user.rows[0].id,
 name:user.rows[0].name,
-email:user.rows[0].email
+email:user.rows[0].email,
+role:user.rows[0].role
 }
-const secretKey = `KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30-QV30`
 
-const token = jwt.sign(JwtPayload,secretKey,{expiresIn:'3d'})
+
+const token = jwt.sign(JwtPayload,secret,{expiresIn:'3d'})
 
 
 

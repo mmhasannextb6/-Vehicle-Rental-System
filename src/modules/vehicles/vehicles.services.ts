@@ -57,6 +57,15 @@ const updateAVehicleInDb = async (id:string, payload:Record<string, unknown>) =>
 };
 
 
+const deleteVehicleFromDB = async (id:string) => {
+
+    const result = await pool.query(
+        `
+            DELETE FROM vehicles WHERE id=$1
+        `,[id]
+    )
+    return result.rows[0]
+};
 
 
 
@@ -64,6 +73,7 @@ export const vehicleServices = {
   addVehicleIntoDB,
   getVehiclesFromDb,
   getSingleVehiclesFromDb,
-  updateAVehicleInDb
+  updateAVehicleInDb,
+  deleteVehicleFromDB
   
 };

@@ -10,8 +10,9 @@ router.post('/vehicles', vehicleControllers.addVehicle)
 router.get('/vehicles', vehicleControllers.getVehicles)
 //done
 router.get('/vehicles/:vehicleId', vehicleControllers.getSingleVehicle)
-//running
+//done
 router.put('/vehicles/:vehicleId', vehicleControllers.updateVehicle)
-// router.delete('/vehicles/:vehicleId', vehicleControllers.addVehicle)
+//running
+router.delete('/vehicles/:vehicleId', vehicleControllers.deleteaVehicle)
 
 export const vehicleRouter = router
